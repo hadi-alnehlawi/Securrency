@@ -10,13 +10,17 @@ $ export dev="https://horizon-testnet.stellar.org"
 $ python app_name.py $production $dev
 ```
 1. Check the number of the arguments passed to the python script, if it was 3 then is ok. ex. Otherwise print an error message.
-2. iterate over the arguments list skipping the first item which is 'python' wor. If the passed argvs are valid url then parse them. Otherwise, raise an exception.
-3. Compare the two versions and send the an alter "OK" if they are not the same.
+2. Iterate over the arguments skipping the first item which is the 'python' word. If the argvs are valid urls then parse them. Otherwise, raise an exception.
+3. The urls must have a key `core_version` and raise an excemption when it is not existed.
+4. Compare the two versions and send the an alter `OK` if they are not the same.
 ### Deploy ###
-We need to track the version continuosly and trigget the alter accordingly. In toder to achieve this goal, the application is deployed as Docker container which is always running a single process
+We need to track the version continuosly and trigger the alter accordingly. In order achieve this goal, the application is deployed as a Docker container and is always running as a single process.
 ```
+# environment variables: production & dev contain the target json files
 $ docker build --quiet --tag parsejson .
 $ docker run -it --network=host parsejson $production $dev
+
 ```
-1. Build the docker images with a tag parsejson
-2. Run the docker 
+1. Build the docker image with a tag `parsejson`
+2. Run the docker image and pass the two arguments url: `production` & `dev`
+3. 
