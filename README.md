@@ -27,7 +27,7 @@ $ docker run -it --network=host parsejson $production $dev
 ### Testing ###
 There is an additional option to test this locally and manipulate with the json file. Two local json files `dev.html` & `prod.html` are the same of production & dev of horizon resepctively. We can these file by running a demo httpsever and then change the content of prod or dev files to reflect the change and see the result
 ```
-# run the below comment in seperate shell 
+# run the below commands in two seperate shells
 sh ./test/httpserver.sh
 sh ./run.sh
 ```
