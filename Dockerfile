@@ -1,9 +1,8 @@
 # start from base
-FROM python:3.8.10
+FROM python:3.8.10-slim
 LABEL maintainer="HADI ALNEHLAWI nhadi82@hotmail.com"
 WORKDIR /app
 COPY ./app.py /app/app.py
-ENV PROD_URL=$PROD_URL
-ENV DEV_URL=$PROD_URL
-RUN [-z "PROD_URL"] && [-z "DEV_URL"] || exit 0
-CMD ["python" , "app.py" , "$PROD_URL" ,"$DEV_URL"]
+ENV PROD_URL="https://horizon.stellar.org"
+ENV DEV_URL="http://horizon-testnet.stellar.org"
+ENTRYPOINT [ "python" , "app.py" ]

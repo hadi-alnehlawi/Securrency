@@ -1,5 +1,5 @@
 from urllib.request import urlopen
-import json, sys
+import json, sys, time
 
 def check_args():
     '''
@@ -40,14 +40,15 @@ def compare_version(versions):
     * NOT OK: the set has one item (version) then it is not OK
     '''
     if len(versions) != 1:
-        print("OK: versions are NOT the same")
-    else:
-        print("NOT OK: same versions")
+        # versions are NOT the same
+        print("OK")
 
 def main():
     if check_args():
-        core_versions = parse_url(sys.argv)
-        compare_version(core_versions)
+        while True:
+            core_versions = parse_url(sys.argv)
+            compare_version(core_versions)
+            time.sleep(1)
     else:
         print("wrong arguments number...!!")
 
