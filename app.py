@@ -4,7 +4,7 @@ import json
 # store the URL in url as 
 # parameter for urlopen
 url1 = "https://horizon-testnet.stellar.org"
-
+url2 =  "https://horizon-testnet.stellar.org"
 def parse_url(url):
     # store the response of URL
     response = urlopen(url)
@@ -16,4 +16,6 @@ def parse_url(url):
     # print the json response
     for key in data_json.keys():
         if key == "core_version":
-            print(data_json[key])
+           return data_json["core_version"]
+print(url1)
+print(url2)
