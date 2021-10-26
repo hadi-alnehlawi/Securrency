@@ -3,7 +3,7 @@ import json, sys, time
 
 def check_args():
     '''
-    * check the numebr of arguments passed to the python script
+    * check the number of arguments passed to the python script
     * if it was 3 then is ok. ex. python app_name.py arg1 arg2
     * however print an error message
     '''
