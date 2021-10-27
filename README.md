@@ -1,7 +1,8 @@
 # Securrency
 
 ## Parse JSON File ##
-Parsing the online json file is executed by a python application `app.py` which takes two input arguments: PROD_URL & DEV_URL.
+`cd Parse`
+Parsing the online json file is executed by a python application `app.py` which takes two input arguments: PROD_URL & DEV_URL. The app will be running continuesly and catch any change in the key of the json and response.
 ### Desgin ###
 ```
 # python > 2.7
@@ -12,7 +13,7 @@ $ python app_name.py $production $dev
 1. Check the number of the arguments passed to the python script, if it was 3 then is ok. ex. Otherwise print an error message.
 2. Iterate over the arguments skipping the first item which is the 'python' word. If the argvs are valid urls then parse them. Otherwise, raise an exception.
 3. The urls must have a key `core_version` and raise an excemption when it is not existed.
-4. Compare the two versions and send the an alter `OK` if they are not the same.
+4. Compare the two versions and send an alter `OK` if they are not the same.
 ### Deploy ###
 We need to track the version continuosly and trigger the alter accordingly. In order achieve this goal, the application is deployed as a Docker container and is always running as a single process.
 ```
