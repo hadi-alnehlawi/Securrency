@@ -1,7 +1,7 @@
 # Securrency
 
 ## Parse JSON File ##
-`cd Parse`
+`$ cd Parse`
 
 Parsing the online json file is executed by a python application `app.py` which takes two input arguments: PROD_URL & DEV_URL. The app will be running continuesly and catch any change in the key of the json and response.
 ### Desgin ###
