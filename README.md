@@ -2,6 +2,7 @@
 
 ## Parse JSON File ##
 `cd Parse`
+
 Parsing the online json file is executed by a python application `app.py` which takes two input arguments: PROD_URL & DEV_URL. The app will be running continuesly and catch any change in the key of the json and response.
 ### Desgin ###
 ```
@@ -30,5 +31,5 @@ There is an additional option to test this locally and manipulate with the json 
 ```
 # run the below commands in two seperate shells
 sh ./test/httpserver.sh
-sh ./run.sh
+sh ./test/run.sh
 ```
