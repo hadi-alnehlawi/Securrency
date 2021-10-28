@@ -28,4 +28,16 @@ You can check the server where the application runs on using http:/yourIP/server
 ```
 $ curl -L https://github.com/s-marchenko/postgresql-go/releases/download/v1.0.0/website_linux_amd64 --output postgresql
 $ chmod 775 postgresql
+
+
+panic: pq: unknown authentication response: 10
+
+goroutine 1 [running]:
+main.initDb()
+        /Users/sergii.marchenko/go/src/github.com/s-marchenko/postgresql-go/code/main.go:60 +0x3b7
+main.main()
+        /Users/sergii.marchenko/go/src/github.com/s-marchenko/postgresql-go/code/main.go:99 +0x26
+
+It is worth mentioning that the task itself is straightforward and easy to achiever. However, the build version is not going though. I tried simple Go Hello Applicaiton just to assure my GO env is working expertly. 
+
 ```
