@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pgmigrate
+data:
+  initsql: |-
+    CREATE TABLE peopleinfo (
+    birthday text,
+    names text,
+    occupation text
+    );
