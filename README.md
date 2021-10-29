@@ -36,9 +36,7 @@ sh ./test/run.sh
 
 
 ## Migrate ##
-We need to run and deploy a web applicaiton connected to postgresdb on kubernetes cluser [minikube](https://minikube.sigs.k8s.io/docs/start/)
-
-https://github.com/komarserjio/notejam/tree/master/flask
+We need to run and deploy a [web applicaiton](https://github.com/komarserjio/notejam/tree/master/flask) connected to postgresdb on kubernetes cluser [minikube](https://minikube.sigs.k8s.io/docs/start/).
 
 The applicaiton was designed in monolothic and our role to deploy it as microservice by a Helm chart
 
