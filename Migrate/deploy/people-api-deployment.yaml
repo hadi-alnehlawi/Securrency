@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: peopleapi
+  labels:
+    app: peopleapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: peopleapi
+  template:
+    metadata:
+      labels:
+        app: peopleapi
+    spec:
+      containers:
+        - env:
+            - name: DBHOST
+              value: peopledb
+            - name: DBNAME
+              value: peopledb
+            - name: DBPASS
+              value: TestSecret
+            - name: DBPORT
+              value: "5432"
+            - name: DBUSER
+              value: postgres
+          image: peopleapi
+          name: website
+          ports:
+            - containerPort: 8080
+      hostname: website
+      restartPolicy: Always

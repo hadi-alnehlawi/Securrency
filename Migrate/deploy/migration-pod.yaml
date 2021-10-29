@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: migration
+  name: migration
+spec:
+  containers:
+    - args:
+        - -path=/migrations/
+        - -database
+        - postgres://postgres:TestSecret@peopledb:5432/peopledb?sslmode=disable
+        - up
+        - "1"
+      image: migrate/migrate
+      name: migrate
+      resources: {}
+      volumeMounts:
+        - mountPath: /migrations
+          name: migration-claim0
+  hostname: migrate
+  restartPolicy: OnFailure
+  volumes:
+    - name: migration-claim0
+      persistentVolumeClaim:
+        claimName: migration-claim0
+status: {}
