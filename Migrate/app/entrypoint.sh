@@ -6,4 +6,4 @@ if ! [ -d "migrations/" ]; then
 fi
 flask db migrate
 flask db upgrade
-python runserver.py
+python run-server.py
