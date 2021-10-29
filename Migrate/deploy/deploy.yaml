@@ -16,12 +16,13 @@ spec:
     spec:
       containers:
         - name: ntoejam
+          imagePullPolicy: Always
           image: hadialnehlawi/notejam:latest
           ports:
             - containerPort: 5000
           env:
             - name: DBHOST
-              value: postgresdb
+              value: postgres
             - name: DBUSER
               value: postgres
             - name: DBPASS
@@ -29,7 +30,7 @@ spec:
             - name: DBPORT
               value: "5432"
             - name: DBNAME
-              value: POSTGRES
+              value: postgres
           resources: {}
 ---
 apiVersion: v1
@@ -40,8 +41,8 @@ metadata:
     app: notejam
 spec:
   ports:
-  - protocol: TCP
-    port: 80
+  - port: 5000
+    protocol: TCP
     targetPort: 5000
   selector:
     app: notejam
@@ -69,8 +70,6 @@ data:
   POSTGRES_DB: postgres
   POSTGRES_USER: postgres
   POSTGRES_PASSWORD: postgres
-
-
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -131,3 +130,4 @@ spec:
       targetPort: 5432
   selector:
     app: postgresdb
+  type: LoadBalancer

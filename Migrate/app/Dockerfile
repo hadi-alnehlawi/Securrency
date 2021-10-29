@@ -14,4 +14,4 @@ ENV DBPORT=$DBPORT
 
 ENV DATABASE_URI="postgres://$DBUSER:$DBPASS@$DBHOST:$DBPORT/$DBNAME"
 EXPOSE 5000
-CMD ["sh", "./entrypoint.sh" ]
+CMD ["python", "app.py" ]

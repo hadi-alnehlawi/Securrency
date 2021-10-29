@@ -33,3 +33,19 @@ There is an additional option to test this locally and manipulate with the json 
 sh ./test/httpserver.sh
 sh ./test/run.sh
 ```
+
+
+## Migrate ##
+We need to run and deploy a web applicaiton connected to postgresdb on kubernetes cluser (minikube)
+https://github.com/komarserjio/notejam/tree/master/flask
+The applicaiton was desgined in monolothic and our role to deploy it using a simple Helm chart.
+
+## Build ##
+We need build the applicaiton first. Thus, the applicaiton was dockerized into contianer and pushed to docker hub container registery:
+1. login to docker hub regitery.
+2. run the shell to build docker image and push.
+```
+$ cd Migration
+$ echo $my_passowrd docker -U "my_username" --password-stdin
+$ sh run-ci.sh
+```
