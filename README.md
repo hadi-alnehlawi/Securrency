@@ -59,14 +59,16 @@ $ minikube start
 $ kubectl create namespace securrency
 $ kubectl config set-context --current --namespace=securrency
 ```
-2. Install the new chart and deploy all the services
+2. Install or update the helm chart to deploy all the services
 ```
 $ cd Migrate/deploy/securrency
+# Install
 $ helm install securrency .
-$ POD=$(kubectl get pod -l app=securrency -o jsonpath="{.items[0].metadata.name}")
-$ kubectl exec -it $POD -- sh /app/migrate.sh
+$ # Or Update
+$ helm upgrade securrency .
 ```
 2. Check the applicaiton by browsing into the service ip
 ```
+$ minikube service securrency 
 
 ```
