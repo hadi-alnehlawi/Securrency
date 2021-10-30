@@ -5,7 +5,7 @@ metadata:
   labels:
     app: securrency
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: securrency
@@ -30,5 +30,5 @@ spec:
             - name: DBPORT
               value: "5432"
             - name: DBNAME
-              value: postgres
+              value: postgresdb
           resources: {}

@@ -51,3 +51,22 @@ $ echo $docker_user_name=my_username
 $ echo $my_passowrd docker -U $docker_user_name --password-stdin
 $ sh run-ci.sh
 ```
+## Deploy ##
+A new custom Helm chart is created to bundle all the deployment files
+1. Start the minikube cluster and create a namespace `securrency`
+```
+$ minikube start
+$ kubectl create namespace securrency
+$ kubectl config set-context --current --namespace=securrency
+```
+2. Install the new chart and deploy all the services
+```
+$ cd Migrate/deploy/securrency
+$ helm install securrency .
+$ POD=$(kubectl get pod -l app=securrency -o jsonpath="{.items[0].metadata.name}")
+$ kubectl exec -it $POD -- sh /app/migrate.sh
+```
+2. Check the applicaiton by browsing into the service ip
+```
+
+```
