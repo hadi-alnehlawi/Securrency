@@ -62,13 +62,20 @@ $ kubectl config set-context --current --namespace=securrency
 2. Install or update the helm chart to deploy all the services
 ```
 $ cd Migrate/deploy/securrency
-# Install
+$ # Install if it was for the first time (A). For update use upgrade command (B).
+$ # (A)
 $ helm install securrency .
-$ # Or Update
+$ # (B)
 $ helm upgrade securrency .
 ```
-2. Check the applicaiton by browsing into the service ip
+3. Check the applicaiton by browsing into the service ip
 ```
 $ minikube service securrency 
-
+```
+## Clean up ##
+```
+$ # delete the whole namespace
+$ kubectl delete namespace securrency
+$ # or destroy all resources on cluster
+$ kubectl delete all --all
 ```

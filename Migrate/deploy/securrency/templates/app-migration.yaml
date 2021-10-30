@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: securrencymigration
+spec:
+  template:
+    spec:
+      containers:
+      - name: securrencymigration
+        image: hadialnehlawi/securrency:latest
+        command: ["sh", "-c", "/app/migrate.sh"]
+        env:
+        - name: DBHOST
+          value: postgres
+        - name: DBUSER
+          value: postgres
+        - name: DBPASS
+          value: postgres
+        - name: DBPORT
+          value: "5432"
+        - name: DBNAME
+          value: postgresdb
+      restartPolicy: Never
