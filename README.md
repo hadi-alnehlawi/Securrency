@@ -40,7 +40,7 @@ We need to run and deploy a [web applicaiton](https://github.com/komarserjio/not
 
 The applicaiton was designed in monolothic and our role to deploy it as microservice by a Helm chart.
 
-### Build ###
+#### Build ####
 It is required to build the applicaiton first - named as `secuurency`. Therefore, the applicaiton was dockerized into a contianer and pushed to [DockerHub](https://hub.docker.com/) container registery:
 1. Login to docker hub regitery.
 2. Run the shell to build docker image and push.
@@ -51,7 +51,7 @@ $ echo $docker_user_name=my_username
 $ echo $my_passowrd docker -U $docker_user_name --password-stdin
 $ sh run-ci.sh
 ```
-### Deploy ###
+#### Deploy ####
 A new custom Helm chart is created to bundle all the deployment files
 1. Start the minikube cluster and create a namespace `securrency`
 ```
@@ -72,7 +72,7 @@ $ helm upgrade securrency .
 ```
 $ minikube service securrency 
 ```
-### Clean up ###
+#### Clean up ####
 ```
 $ # delete the whole namespace
 $ kubectl delete namespace securrency
