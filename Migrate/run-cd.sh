@@ -18,7 +18,7 @@ kubectl config set-context --current --namespace=gopeople
 openssl req -x509 -newkey rsa:4096 -sha256 -nodes -keyout $MOUNTPVC/tls.key -out $MOUNTPVC/tls.crt -subj "/CN=gopeople.com" -days 365
 
 # Helm Charts Apply
-helm upgrade gopeople Migrate/deploy/gopeople
+helm install gopeople Migrate/deploy/gopeople
 kubectl create secret tls gopeople-com-tls --cert=tls.crt --key=tls.key
 
 # Running

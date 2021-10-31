@@ -39,7 +39,11 @@ sh ./test/run.sh
 We need to run and deploy a [web applicaiton](https://github.com/komarserjio/notejam/tree/master/flask) connected to postgresdb on kubernetes cluser [minikube](https://minikube.sigs.k8s.io/docs/start/).
 
 ### Build ###
-It is required to build the applicaiton first - named as `goeople`. Therefore, the applicaiton was dockerized into a contianer and pushed to [DockerHub](https://hub.docker.com/) container registery. Therefore, the blow three steps are **optional** and might be **skipped** as the images are already built and pushed
+It is required to build the applicaiton first - named as `goeople`.
+```
+$ sh Migrate/run-ci.sh
+```
+ Therefore, the applicaiton was dockerized into a contianer and pushed to [DockerHub](https://hub.docker.com/) container registery. Therefore, the blow three steps are **optional** and might be **skipped** as the images are already built and pushed
 1. Login to docker hub regitery.
 2. Run the shell to build docker image and push.
 3. I used my public docker hub for an ease installation, please feel free to use any public contianer registery.
@@ -69,7 +73,7 @@ $ openssl req -x509 -newkey rsa:4096 -sha256 -nodes -keyout tls.key -out tls.crt
 ```
 Update the helm chart to deploy all the services. Also save the created tls and the certification as a secret in the cluster.
 ```
-$ helm upgrade gopeople Migrate/deploy/gopeople
+$ helm install gopeople Migrate/deploy/gopeople
 $ kubectl create secret tls gopeople-com-tls --cert=tls.crt --key=tls.key
 ```
 
@@ -79,7 +83,7 @@ $ kubectl create secret tls gopeople-com-tls --cert=tls.crt --key=tls.key
 $ kubectl get pods
 ```
 
-check the applicaiton by logging to the HTTPs site:
+Check the applicaiton by logging to the HTTPs site:
 **https://gopeople.com/**
 
 #### Clean up ####
