@@ -40,7 +40,7 @@ We need to run and deploy **gopeople** a [web applicaiton](https://github.com/ko
 
 ### Build ###
 This build step is _optional_ and might be _skipped_ as the images are already built and pushed
-It is required to build the applicaiton first - named as `goeople`.
+It is required to build the applicaiton first.
 ```
 $ sh Migrate/run-ci.sh
 ```
