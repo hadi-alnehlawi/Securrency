@@ -58,11 +58,11 @@ The deployment steps are packaged in one file
 $ sudo sh Migrate/run-cd.sh
 ```
 #### Steps ####
-Set Environments Variables
+* Set Environments Variables
 ```
 $ export MOUNTPVC=$(pwd)/Migrate/deploy/gopeople/volumes
 ```
-Start the minikube cluster with mount value and enable ingress.
+* Start the minikube cluster with mount value and enable ingress.
 ```
 $ minikube start --mount --mount-string="$MOUNTPVC:/mountvpc"
 $ minikube addons enable ingress
