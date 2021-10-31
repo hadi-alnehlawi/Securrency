@@ -53,23 +53,22 @@ The deployment steps are packaged in one file
 
 `$ sh Migrate/run-cd.sh`
 #### Steps ####
-1. Start the minikube cluster and enable ingress`
+1. Start the minikube cluster and enable ingress.
 ```
 $ minikube start
 $ minikube addons enable ingress
 ```
-2. Create a namespace `gopeople` and set it as default and create a secret
+2. Create a namespace `gopeople` and set it as default.
 ```
 $ kubectl create namespace securrency
 $ kubectl config set-context --current --namespace=gopeople
 ```
-3. Set TLS Certifiate locally which is going to be used for HTTPs
+3. Set TLS Certifiate locally which is going to be used for HTTPs and and create a secret.
 ```
 $ openssl req -x509 -newkey rsa:4096 -sha256 -nodes -keyout tls.key -out tls.crt -subj "/CN=gopeople.com" -days 365
 $ kubectl create secret tls gopeople-com-tls --cert=tls.crt --key=tls.key
 ```
-
-2. Install or update the helm chart to deploy all the services
+4. Update the helm chart to deploy all the services.
 ```
 $ cd Migrate/deploy/securrency
 $ # Install if it was for the first time (A). For update use upgrade command (B).
