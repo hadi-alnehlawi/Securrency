@@ -82,7 +82,7 @@ $ helm install gopeople Migrate/deploy/gopeople
 $ kubectl create secret tls gopeople-com-tls --cert=tls.crt --key=tls.key
 ```
 
- We need to wait couple of seconds till all the containers are pulled and running succesfully. 
+ We need to wait couple of seconds till all the containers are pulled and running successfully. 
 
 ```
 $ kubectl get pods
