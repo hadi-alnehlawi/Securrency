@@ -35,10 +35,10 @@ sh ./test/run.sh
 ```
 
 
-### Migrate ###
+## Migrate ##
 We need to run and deploy a [web applicaiton](https://github.com/komarserjio/notejam/tree/master/flask) connected to postgresdb on kubernetes cluser [minikube](https://minikube.sigs.k8s.io/docs/start/).
 
-#### Build ####
+### Build ###
 It is required to build the applicaiton first - named as `goeople`. Therefore, the applicaiton was dockerized into a contianer and pushed to [DockerHub](https://hub.docker.com/) container registery. Therefore, the blow three steps are **optional** and might be **skipped** as the images are already built and pushed
 1. Login to docker hub regitery.
 2. Run the shell to build docker image and push.
@@ -48,7 +48,7 @@ $ echo $docker_user_name=my_username
 $ echo $my_passowrd docker -U $docker_user_name --password-stdin
 $ sh Migrate/run-ci.sh
 ```
-### Deploy ###
+## Deploy ##
 The deployment steps are packaged in one file
 
 `$ sh Migrate/run-cd.sh`
