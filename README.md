@@ -47,7 +47,7 @@ $ sh Migrate/run-ci.sh
  Therefore, the applicaiton was dockerized into a contianer and pushed to [DockerHub](https://hub.docker.com/) container registery.
 * Login to docker hub regitery.
 * Run the shell to build docker image and push.
-* I used my public docker hub for an ease installation, please feel free to use any public contianer registery.
+* I used my public docker hub for an easier installation, please feel free to use any public contianer registery.
 ```
 $ echo $docker_user_name=my_username
 $ echo $my_passowrd docker -U $docker_user_name --password-stdin
