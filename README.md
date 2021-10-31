@@ -58,7 +58,7 @@ The deployment steps are packaged in one file
 $ minikube start
 $ minikube addons enable ingress
 ```
-2. Create a namespace `gopeople` and set it as default
+2. Create a namespace `gopeople` and set it as default and create a secret
 ```
 $ kubectl create namespace securrency
 $ kubectl config set-context --current --namespace=gopeople
