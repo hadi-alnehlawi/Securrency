@@ -80,7 +80,7 @@ $ kubectl config set-context --current --namespace=gopeople
 ```
 $ openssl req -x509 -newkey rsa:4096 -sha256 -nodes -keyout tls.key -out tls.crt -subj "/CN=gopeople.com" -days 365
 ```
-* Update the helm chart to deploy all the services. Also save the created tls and the certification as a secret in the cluster
+* Update the helm chart to deploy all the services and save the created tls and the certification as a secret in the cluster
 ```
 $ helm install gopeople Migrate/deploy/gopeople
 $ kubectl create secret tls gopeople-com-tls --cert=tls.crt --key=tls.key
