@@ -58,15 +58,18 @@ The deployment steps are packaged in one file
 $ sudo sh Migrate/run-cd.sh
 ```
 #### Steps ####
-Start the minikube cluster and enable ingress.
+Set Environments Variables
 ```
-$ minikube start
-$ minikubeexport production="http://0.0.0.0:8000/Parse/test/prod.html"
-export dev="http://0.0.0.0:8000/Parse/test/dev.html"
-docker rm -f $(docker ps -a -q) > /dev/null 2>&1
-docker rmi -f $(docker images) > /dev/null 2>&1
-docker build --tag parsejson -f Parse/Dockerfile Parse/
-docker run -it --network=host parsejson $production $dev addons enable ingress
+$ export MOUNTPVC=$(pwd)/Migrate/deploy/gopeople/volumes
+```
+Start the minikube cluster with mount value and enable ingress.
+```
+$ minikube start --mount --mount-string="$MOUNTPVC:/mountvpc"
+$ minikube addons enable ingress
+```
+Resolve DNS Locally
+```
+echo "$(minikube ip) gopeople.com" | sudo tee -a /etc/hosts
 ```
 Create a namespace `gopeople` and set it as default.
 ```
