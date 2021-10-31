@@ -15,11 +15,11 @@ kubectl create namespace gopeople
 kubectl config set-context --current --namespace=gopeople
 
 # TLS Certifiate Loally
-openssl req -x509 -newkey rsa:4096 -sha256 -nodes -keyout tls.key -out tls.crt -subj "/CN=gopeople.com" -days 365
-kubectl create secret tls gopeople-com-tls --cert=tls.crt --key=tls.key
+openssl req -x509 -newkey rsa:4096 -sha256 -nodes -keyout $MOUNTPVC/tls.key -out $MOUNTPVC/tls.crt -subj "/CN=gopeople.com" -days 365
 
 # Helm Charts Apply
 helm upgrade gopeople Migrate/deploy/gopeople
+kubectl create secret tls gopeople-com-tls --cert=tls.crt --key=tls.key
 
 # Running
 # wait till all the pods are created by checking
