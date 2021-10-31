@@ -63,7 +63,7 @@ $ minikube addons enable ingress
 $ kubectl create namespace securrency
 $ kubectl config set-context --current --namespace=gopeople
 ```
-3.# Set TLS Certifiate locally which is going to be used for HTTPs
+3. Set TLS Certifiate locally which is going to be used for HTTPs
 ```
 $ openssl req -x509 -newkey rsa:4096 -sha256 -nodes -keyout tls.key -out tls.crt -subj "/CN=gopeople.com" -days 365
 $ kubectl create secret tls gopeople-com-tls --cert=tls.crt --key=tls.key
