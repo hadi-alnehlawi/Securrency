@@ -51,8 +51,11 @@ $ echo $my_passowrd docker -U $docker_user_name --password-stdin
 $ sh Migrate/run-ci.sh
 ```
 #### Deploy ####
-A new custom Helm chart is created to bundle all the deployment files
-1. Start the minikube cluster and create a namespace `securrency`
+The deployment steps are packaged in one file
+'$ sh Migrate/run-cd.sh localtion_'
+
+
+1. Start the minikube cluster and create a namespace `gopeople`
 ```
 $ minikube start
 $ kubectl create namespace securrency
