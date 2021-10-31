@@ -70,7 +70,7 @@ $ kubectl create secret tls gopeople-com-tls --cert=tls.crt --key=tls.key
 ```
 4. Update the helm chart to deploy all the services.
 
-`helm upgrade gopeople Migrate/deploy/gopeople`
+`$ helm upgrade gopeople Migrate/deploy/gopeople`
 
 5. We need to wait couple of seconds till all the containers are pulled and running succesfully.
 
