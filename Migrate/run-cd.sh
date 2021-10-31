@@ -1,14 +1,36 @@
-# # Minikube Cluster
-# minikube start
-# kubectl create namespace securrency
-# kubectl config set-context --current --namespace=securrency
+## Set Environments Variables
+export MOUNTPVC="/home/hadi/Desktop/Securrency/Migrate/deploy/gopeople/volumes"
 
-## Helm Chart 
-# cd Migration/deploy
-# helm create securrency Migration/deploy
 
-## Helm Update & Migration
-# cd Migrate/deploy
-# helm install securrency Migrate/deploy/securrency
-# POD=$(kubectl get pod -l app=securrency -o jsonpath="{.items[0].metadata.name}")
-# kubectl exec -it $POD -- sh /app/migrate.sh
+## Minikube Cluster
+minikube start --mount --mount-string="$MOUNTPVC:/mountvpc"
+
+## Minikube Ingree Enable
+minikube addons enable ingress
+
+# Resolve DNS Locally
+echo "$(minikube ip) gopeople.com" | sudo tee -a /etc/hosts
+
+## Create K8S Namespace
+kubectl create namespace gopeople
+kubectl config set-context --current --namespace=gopeople
+
+# TLS Certifiate Loally
+openssl req -x509 -newkey rsa:4096 -sha256 -nodes -keyout tls.key -out tls.crt -subj "/CN=gopeople.com" -days 365
+kubectl create secret tls gopeople-com-tls --cert=tls.crt --key=tls.key
+
+## Helm Install
+helm install gopeople Migrate/deploy/gopeople
+
+## Running
+# wait till all the pods are created by checking
+kubectl get pods
+
+# ## Clean Up
+# mikine delete
+# # or
+# kubectl delete namespace gopeople
+
+
+
+

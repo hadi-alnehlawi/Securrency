@@ -1,0 +1,14 @@
+image:
+  repo: hadialnehlawi
+  name: gopeople
+  tag: latest
+app:
+  name: gopeople
+  port: 8080
+postgres:
+  name: postgresdb
+  DBNAME: postgresdb
+  DBHOST: postgres
+  DBPORT: 5432
+  DBUSER: postgres
+  DBPASS: postgres

@@ -5,8 +5,9 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-    - port: 5432
-      targetPort: 5432
+    - port: {{.Values.postgres.DBPORT}}
+      targetPort: {{.Values.postgres.DBPORT}}
+      
   selector:
     app: postgresdb
   type: LoadBalancer

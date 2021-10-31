@@ -41,7 +41,7 @@ We need to run and deploy a [web applicaiton](https://github.com/komarserjio/not
 The applicaiton was designed in monolothic and our role to deploy it as microservice by a Helm chart.
 
 #### Build ####
-It is required to build the applicaiton first - named as `secuurency`. Therefore, the applicaiton was dockerized into a contianer and pushed to [DockerHub](https://hub.docker.com/) container registery:
+It is required to build the applicaiton first - named as `goeople`. Therefore, the applicaiton was dockerized into a contianer and pushed to [DockerHub](https://hub.docker.com/) container registery - the blow is option and might be skipeed while the images are build
 1. Login to docker hub regitery.
 2. Run the shell to build docker image and push.
 3. I used my public docker hub for an ease installation, please feel free to use any public contianer registery.

@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: gopeopleingress
+spec:
+  tls:
+    - hosts:
+        - gopeople.com
+      secretName: gopeople-com-tls
+  rules:
+  - host: gopeople.com
+    http:
+      paths:
+      - pathType: Prefix 
+        path: "/"
+        backend:
+            service:
+                name: gopeople
+                port:
+                    number: 8080

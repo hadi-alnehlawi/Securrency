@@ -1,0 +1,5 @@
+DBPORT=5432
+DBHOST=people_database
+DBUSER=postgres
+DBPASS=TestSecret
+DBNAME=peopledatabase

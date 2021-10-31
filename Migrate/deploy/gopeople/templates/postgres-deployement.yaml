@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{.Values.postgres.name}}
+  labels:
+    app: {{.Values.postgres.name}}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{.Values.postgres.name}}
+  template:
+    metadata:
+      labels:
+        app: {{.Values.postgres.name}}
+    spec:
+      volumes:
+        - name: sqlvm
+          hostPath:
+            path: /mountvpc/migrations
+            type: Directory
+        - name: postgrespvc
+          persistentVolumeClaim:
+            claimName: postgrespvc
+      containers:
+        - name: postgres
+          image: postgres:latest
+          volumeMounts:
+          - name: sqlvm
+            mountPath: /docker-entrypoint-initdb.d/
+          - name: postgrespvc
+            mountPath: /var/lib/postgresql/data
+          env:
+          - name: POSTGRES_DB
+            valueFrom:
+              configMapKeyRef:
+                key: POSTGRES_DB
+                name: postgres-config
+          - name: POSTGRES_USER
+            valueFrom:
+              configMapKeyRef:
+                key: POSTGRES_USER
+                name: postgres-config
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              configMapKeyRef:
+                key: POSTGRES_PASSWORD
+                name: postgres-config
+          ports:
+            - containerPort: 5432
+              name: postgres
