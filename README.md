@@ -74,6 +74,7 @@ $ kubectl create secret tls gopeople-com-tls --cert=tls.crt --key=tls.key
 ```
 
 5. We need to wait couple of seconds till all the containers are pulled and running succesfully. 
+
 `$ kubectl get pods`
 
 6. check the applicaiton by logging to the HTTPs site:
