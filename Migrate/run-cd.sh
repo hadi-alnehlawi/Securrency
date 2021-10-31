@@ -18,6 +18,7 @@ kubectl config set-context --current --namespace=gopeople
 openssl req -x509 -newkey rsa:4096 -sha256 -nodes -keyout $MOUNTPVC/tls.key -out $MOUNTPVC/tls.crt -subj "/CN=gopeople.com" -days 365
 
 # Helm Charts Apply
+kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission
 helm install gopeople Migrate/deploy/gopeople
 kubectl create secret tls gopeople-com-tls --cert=$MOUNTPVC/tls.crt --key=$MOUNTPVC/tls.key
 

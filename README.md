@@ -67,7 +67,7 @@ $ export MOUNTPVC=$(pwd)/Migrate/deploy/gopeople/volumes
 $ minikube start --mount --mount-string="$MOUNTPVC:/mountvpc"
 $ minikube addons enable ingress
 ```
-* Resolve DNS Locally
+* Resolve DNS Locally, and this requires `sudo` authenticatioin
 ```
 echo "$(minikube ip) gopeople.com" | sudo tee -a /etc/hosts
 ```
@@ -79,6 +79,10 @@ $ kubectl config set-context --current --namespace=gopeople
 * Set `tls` key and `certification` locally which are going to be used for HTTPs
 ```
 $ openssl req -x509 -newkey rsa:4096 -sha256 -nodes -keyout tls.key -out tls.crt -subj "/CN=gopeople.com" -days 365
+```
+* Delete the ValidatingWebhookConfiguration of the ingress if existed
+```
+kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission
 ```
 * Update the helm chart to deploy all the services and save the created tls and the certification as a secret in the cluster
 ```
