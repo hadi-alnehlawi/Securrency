@@ -39,7 +39,7 @@ sh ./test/run.sh
 We need to run and deploy **gopeople** a [web applicaiton](https://github.com/komarserjio/notejam/tree/master/flask) connected to postgresdb on kubernetes cluser [minikube](https://minikube.sigs.k8s.io/docs/start/).
 
 ### Build ###
-This build step is ***optional*** and might be **skipped** as the images are already built and pushed
+This build step is _optional_ and might be **skipped** as the images are already built and pushed
 It is required to build the applicaiton first - named as `goeople`.
 ```
 $ sh Migrate/run-ci.sh
