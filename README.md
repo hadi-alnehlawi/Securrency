@@ -66,12 +66,11 @@ $ kubectl config set-context --current --namespace=gopeople
 3. Set TLS Certifiate locally which is going to be used for HTTPs.
 ```
 $ openssl req -x509 -newkey rsa:4096 -sha256 -nodes -keyout tls.key -out tls.crt -subj "/CN=gopeople.com" -days 365
-$ kubectl create secret tls gopeople-com-tls --cert=tls.crt --key=tls.key
 ```
 4. Update the helm chart to deploy all the services. Also save the created tls and the certification as a secret in the cluster.
 ```
 $ helm upgrade gopeople Migrate/deploy/gopeople
-$kubectl create secret tls gopeople-com-tls --cert=tls.crt --key=tls.key
+$ kubectl create secret tls gopeople-com-tls --cert=tls.crt --key=tls.key
 ```
 
 5. We need to wait couple of seconds till all the containers are pulled and running succesfully. `$ kubectl get pods`
