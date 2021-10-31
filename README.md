@@ -46,10 +46,9 @@ It is required to build the applicaiton first - named as `goeople`. Therefore, t
 2. Run the shell to build docker image and push.
 3. I used my public docker hub for an ease installation, please feel free to use any public contianer registery.
 ```
-$ cd Migration
 $ echo $docker_user_name=my_username
 $ echo $my_passowrd docker -U $docker_user_name --password-stdin
-$ sh run-ci.sh
+$ sh Migrate/run-ci.sh
 ```
 #### Deploy ####
 A new custom Helm chart is created to bundle all the deployment files
