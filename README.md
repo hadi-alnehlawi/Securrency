@@ -76,7 +76,7 @@ echo "$(minikube ip) gopeople.com" | sudo tee -a /etc/hosts
 $ kubectl create namespace securrency
 $ kubectl config set-context --current --namespace=gopeople
 ```
-* Set tls key and certification locally which is going to be used for HTTPs
+* Set `tls` key and `certification` locally which is going to be used for HTTPs
 ```
 $ openssl req -x509 -newkey rsa:4096 -sha256 -nodes -keyout tls.key -out tls.crt -subj "/CN=gopeople.com" -days 365
 ```
