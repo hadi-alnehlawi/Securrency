@@ -48,7 +48,7 @@ $ echo $docker_user_name=my_username
 $ echo $my_passowrd docker -U $docker_user_name --password-stdin
 $ sh Migrate/run-ci.sh
 ```
-#### Deploy ####
+### Deploy ###
 The deployment steps are packaged in one file
 
 `$ sh Migrate/run-cd.sh`
