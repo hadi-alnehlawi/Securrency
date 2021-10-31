@@ -67,32 +67,30 @@ $ export MOUNTPVC=$(pwd)/Migrate/deploy/gopeople/volumes
 $ minikube start --mount --mount-string="$MOUNTPVC:/mountvpc"
 $ minikube addons enable ingress
 ```
-Resolve DNS Locally
+* Resolve DNS Locally
 ```
 echo "$(minikube ip) gopeople.com" | sudo tee -a /etc/hosts
 ```
-Create a namespace `gopeople` and set it as default.
+* Create a namespace `gopeople` and set it as default.
 ```
 $ kubectl create namespace securrency
 $ kubectl config set-context --current --namespace=gopeople
 ```
-Set tls key and certification locally which is going to be used for HTTPs.
+* Set tls key and certification locally which is going to be used for HTTPs.
 ```
 $ openssl req -x509 -newkey rsa:4096 -sha256 -nodes -keyout tls.key -out tls.crt -subj "/CN=gopeople.com" -days 365
 ```
-Update the helm chart to deploy all the services. Also save the created tls and the certification as a secret in the cluster.
+* Update the helm chart to deploy all the services. Also save the created tls and the certification as a secret in the cluster.
 ```
 $ helm install gopeople Migrate/deploy/gopeople
 $ kubectl create secret tls gopeople-com-tls --cert=tls.crt --key=tls.key
 ```
 
  We need to wait couple of seconds till all the containers are pulled and running successfully. 
-
 ```
 $ kubectl get pods
 ```
-
-Check the applicaiton by logging to the HTTPs site:
+* Check the applicaiton by logging to the HTTPs site:
 **https://gopeople.com/**
 
 
