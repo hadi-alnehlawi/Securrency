@@ -71,7 +71,7 @@ $ minikube addons enable ingress
 ```
 echo "$(minikube ip) gopeople.com" | sudo tee -a /etc/hosts
 ```
-* Create a namespace `gopeople` and set it as default
+* Create a namespace `gopeople` and set it as default one
 ```
 $ kubectl create namespace securrency
 $ kubectl config set-context --current --namespace=gopeople
