@@ -51,8 +51,7 @@ $ sh Migrate/run-ci.sh
 #### Deploy ####
 The deployment steps are packaged in one file
 
-'$ sh Migrate/run-cd.sh localtion_'
-
+`$ sh Migrate/run-cd.sh`
 
 1. Start the minikube cluster and create a namespace `gopeople`
 ```
