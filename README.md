@@ -36,7 +36,7 @@ sh ./test/run.sh
 
 
 ## Migrate ##
-We need to run and deploy a [web applicaiton](https://github.com/komarserjio/notejam/tree/master/flask) connected to postgresdb on kubernetes cluser [minikube](https://minikube.sigs.k8s.io/docs/start/).
+We need to run and deploy a [web applicaiton](https://github.com/komarserjio/notejam/tree/master/flask) **gopeople** connected to postgresdb on kubernetes cluser [minikube](https://minikube.sigs.k8s.io/docs/start/).
 
 ### Build ###
 This build step is **optional** and might be **skipped** as the images are already built and pushed
