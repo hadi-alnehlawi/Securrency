@@ -69,8 +69,10 @@ $ openssl req -x509 -newkey rsa:4096 -sha256 -nodes -keyout tls.key -out tls.crt
 $ kubectl create secret tls gopeople-com-tls --cert=tls.crt --key=tls.key
 ```
 4. Update the helm chart to deploy all the services.
+
 `helm upgrade gopeople Migrate/deploy/gopeople`
-5. We need to wait couple of seconds till all the containers are pulled and running succesfully
+5. We need to wait couple of seconds till all the containers are pulled and running succesfully.
+
 `$ kubectl get pods`
 6. check the applicaiton by logging to the HTTPs site:
 **https://gopeople.com/**
