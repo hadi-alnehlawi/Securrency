@@ -54,8 +54,9 @@ $ sh Migrate/run-ci.sh
 ```
 ### Deploy ###
 The deployment steps are packaged in one file
-
-`$ sh Migrate/run-cd.sh`
+```
+$ sh Migrate/run-cd.sh
+```
 #### Steps ####
 Start the minikube cluster and enable ingress.
 ```
@@ -93,6 +94,8 @@ Check the applicaiton by logging to the HTTPs site:
 
 #### Clean up ####
 ```
+# delete the helm template
+$ helm delete --purge gopeople
 # delete the whole namespace
 $ kubectl delete namespace gopeople
 # or destroy all resources on cluster

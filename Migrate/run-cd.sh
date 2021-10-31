@@ -18,14 +18,18 @@ kubectl config set-context --current --namespace=gopeople
 openssl req -x509 -newkey rsa:4096 -sha256 -nodes -keyout $MOUNTPVC/tls.key -out $MOUNTPVC/tls.crt -subj "/CN=gopeople.com" -days 365
 
 # Helm Charts Apply
+# delete if existed
+helm delete --purge gopeople
+# create a tempalte chart
 helm install gopeople Migrate/deploy/gopeople
-kubectl create secret tls gopeople-com-tls --cert=tls.crt --key=tls.key
+kubectl create secret tls gopeople-com-tls --cert=$MOUNTPVC/tls.crt --key=$MOUNTPVC/tls.key
 
 # Running
 # wait till all the pods are created by checking
 kubectl get pods
 
 # Clean Up
+# helm delete --purge gopeople
 # mikine delete
 # # or
 # kubectl delete namespace gopeople
