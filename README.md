@@ -58,28 +58,28 @@ Start the minikube cluster and enable ingress.
 $ minikube start
 $ minikube addons enable ingress
 ```
-2. Create a namespace `gopeople` and set it as default.
+Create a namespace `gopeople` and set it as default.
 ```
 $ kubectl create namespace securrency
 $ kubectl config set-context --current --namespace=gopeople
 ```
-3. Set TLS Certifiate locally which is going to be used for HTTPs.
+Set TLS Certifiate locally which is going to be used for HTTPs.
 ```
 $ openssl req -x509 -newkey rsa:4096 -sha256 -nodes -keyout tls.key -out tls.crt -subj "/CN=gopeople.com" -days 365
 ```
-4. Update the helm chart to deploy all the services. Also save the created tls and the certification as a secret in the cluster.
+Update the helm chart to deploy all the services. Also save the created tls and the certification as a secret in the cluster.
 ```
 $ helm upgrade gopeople Migrate/deploy/gopeople
 $ kubectl create secret tls gopeople-com-tls --cert=tls.crt --key=tls.key
 ```
 
-5. We need to wait couple of seconds till all the containers are pulled and running succesfully. 
+ We need to wait couple of seconds till all the containers are pulled and running succesfully. 
 
 ```
 $ kubectl get pods
 ```
 
-6. check the applicaiton by logging to the HTTPs site:
+check the applicaiton by logging to the HTTPs site:
 **https://gopeople.com/**
 
 #### Clean up ####
