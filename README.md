@@ -50,6 +50,7 @@ $ sh Migrate/run-ci.sh
 ```
 #### Deploy ####
 The deployment steps are packaged in one file
+
 '$ sh Migrate/run-cd.sh localtion_'
 
 
