@@ -24,11 +24,13 @@ $ docker run -it --network=host parsejson $production $dev
 * Run the docker image and pass the two arguments url: `production` & `dev`
 * If the two arguemnts are NOT the same, it would sned an alter stdout `OK`. In other case, it would do nothing
 #### Testing ####
-There is an additional option to test this locally and manipulate with the json file. Two local json files `dev.html` & `prod.html` are the same of production & dev of horizon resepctively. We can these file by running a demo httpsever and then change the content of prod or dev files to reflect the change and see the result
+There is an additional option to test this locally and manipulate with the json file. Two local json files `dev.html` & `prod.html` are the same of production & dev of horizon resepctively. We can use these file by running a demo httpsever and then change the content of prod or dev files to reflect the change and see the result.
 ```
 # run the below commands in two seperate shells
-sh ./test/httpserver.sh
-sh ./test/run.sh
+# (1)
+$ sh ./Parse/run-httpserver.sh
+# (2)
+$ sh ./Parse/run-test.sh
 ```
 
 

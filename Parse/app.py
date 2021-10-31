@@ -1,5 +1,5 @@
 from urllib.request import urlopen
-from urllib.error import HTTPError
+from urllib.error import HTTPError,URLError
 import json, sys, time
 
 def check_args():
@@ -26,8 +26,9 @@ def parse_url(*argv):
             response = urlopen(arg)
             # storing the JSON response from url in data
             data_jsons.append(json.loads(response.read()))
-        except  (HTTPError):
-            print(f"{arg}")
+        except  (URLError, HTTPError):
+            print(f"Error in reading URL")
+            sys.exit()
             return False
     return data_jsons
 
