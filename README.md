@@ -55,7 +55,7 @@ $ sh Migrate/run-ci.sh
 ### Deploy ###
 The deployment steps are packaged in one file
 ```
-$ sh Migrate/run-cd.sh
+$ sudo sh Migrate/run-cd.sh
 ```
 #### Steps ####
 Start the minikube cluster and enable ingress.
@@ -91,6 +91,7 @@ $ kubectl get pods
 
 Check the applicaiton by logging to the HTTPs site:
 **https://gopeople.com/**
+
 
 #### Clean up ####
 ```
