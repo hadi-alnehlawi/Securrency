@@ -85,8 +85,7 @@ $ openssl req -x509 -newkey rsa:4096 -sha256 -nodes -keyout tls.key -out tls.crt
 $ helm install gopeople Migrate/deploy/gopeople
 $ kubectl create secret tls gopeople-com-tls --cert=tls.crt --key=tls.key
 ```
-
- We need to wait couple of seconds till all the containers are pulled and running successfully. 
+ * We need to wait couple of seconds till all the containers are pulled and running successfully. 
 ```
 $ kubectl get pods
 ```
