@@ -53,7 +53,7 @@ The deployment steps are packaged in one file
 
 `$ sh Migrate/run-cd.sh`
 #### Steps ####
-1. Start the minikube cluster and enable ingress.
+Start the minikube cluster and enable ingress.
 ```
 $ minikube start
 $ minikube addons enable ingress
