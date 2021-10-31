@@ -29,7 +29,3 @@ kubectl get pods
 # mikine delete
 # # or
 # kubectl delete namespace gopeople
-
-
-
-

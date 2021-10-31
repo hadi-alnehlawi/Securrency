@@ -2,7 +2,7 @@
 
 ## Parse JSON File ##
 Parsing the online json file is executed by a python application `app.py` which takes two input arguments: PROD_URL & DEV_URL. The app will be running continuesly and catch any change in the key of the json and response.
-#### Desgin ####
+### Desgin ###
 ```
 # python > 2.7
 $ export production="https://horizon.stellar.org"
@@ -13,7 +13,7 @@ $ python Parse/app.py $production $dev
 * Iterate over the arguments skipping the first item which is the 'python' word. If the argvs are valid urls then parse them. Otherwise, raise an exception.
 * The urls must have a key `core_version` and raise an excemption when it is not existed.
 * Compare the two versions and send an alter `OK` if they are not the same.
-#### Deploy ####
+### Deploy ###
 We need to track the version continuosly and trigger the alter accordingly. In order achieve this goal, the application is deployed as a Docker container and is always running as a single process.
 ```
 # environment variables: production & dev contain the target json files
@@ -23,7 +23,7 @@ $ docker run -it --network=host parsejson $production $dev
 * Build the docker image with a tag `parsejson`
 * Run the docker image and pass the two arguments url: `production` & `dev`
 * If the two arguemnts are NOT the same, it would sned an alter stdout `OK`. In other case, it would do nothing
-#### Testing ####
+### Testing ###
 There is an additional option to test this locally and manipulate with the json file. Two local json files `dev.html` & `prod.html` are the same of production & dev of horizon resepctively. We can use these file by running a demo httpsever and then change the content of prod or dev files to reflect the change and see the result.
 ```
 # run the below commands in two seperate shells
