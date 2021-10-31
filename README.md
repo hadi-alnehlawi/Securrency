@@ -57,7 +57,7 @@ The deployment steps are packaged in one file
 ```
 $ minikube start
 $ kubectl create namespace securrency
-$ kubectl config set-context --current --namespace=securrency
+$ kubectl config set-context --current --namespace=gopeople
 ```
 2. Install or update the helm chart to deploy all the services
 ```
