@@ -55,7 +55,7 @@ $ sh Migrate/run-ci.sh
 ### Deploy ###
 The deployment steps are packaged in one file:
 ```
-$ sudo sh Migrate/run-cd.sh
+$ sh Migrate/run-cd.sh
 ```
 #### Steps ####
 * Set Environments Variables
