@@ -22,7 +22,7 @@ $ docker run -it --network=host parsejson $production $dev
 ```
 * Build the docker image with a tag `parsejson`
 * Run the docker image and pass the two arguments url: `production` & `dev`
-* If the two arguemnts are NOT the same, it would sned an alter stdout `OK`. In other case, it would do nothing
+* If the two arguemnts are NOT the same, it would send an alter stdout `OK`. In other case, it would do nothing
 ### Testing ###
 There is an additional option to test this locally and manipulate with the json file. Two local json files `dev.html` & `prod.html` are the same of production & dev of horizon resepctively. We can use these file by running a demo httpsever and then change the content of prod or dev files to reflect the change and see the result.
 ```
@@ -99,10 +99,9 @@ $ kubectl get pods
 
 #### Clean up ####
 ```
-# delete the helm template
-$ helm delete --purge gopeople
-# delete the whole namespace
+
+# delete the namespace
 $ kubectl delete namespace gopeople
-# or destroy all resources on cluster
-$ kubectl delete all --all
+# or delete the whole cluster
+$ minikube delete
 ```

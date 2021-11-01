@@ -27,7 +27,6 @@ kubectl create secret tls gopeople-com-tls --cert=$MOUNTPVC/tls.crt --key=$MOUNT
 kubectl get pods
 
 # Clean Up
-# helm delete --purge gopeople
 # mikine delete
 # # or
 # kubectl delete namespace gopeople
