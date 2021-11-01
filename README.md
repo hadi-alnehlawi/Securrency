@@ -80,7 +80,7 @@ $ kubectl config set-context --current --namespace=gopeople
 ```
 $ openssl req -x509 -newkey rsa:4096 -sha256 -nodes -keyout tls.key -out tls.crt -subj "/CN=gopeople.com" -days 365
 ```
-* Delete the ValidatingWebhookConfiguration of the ingress if existed
+* Delete the ValidatingWebhookConfiguration of the ingress if existed (if running the scripts again wihout cleaning up all resources)
 ```
 kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission
 ```
